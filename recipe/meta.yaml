@@ -7,7 +7,6 @@ package:
   version: {{ version|replace("-", "_") }}
 
 source:
-  fn: biglm_{{ version }}.tar.gz
   url:
     - {{ cran_mirror }}/src/contrib/biglm_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/biglm/biglm_{{ version }}.tar.gz
@@ -46,7 +45,7 @@ test:
 
 about:
   home: https://CRAN.R-project.org/package=biglm
-  license: GPL
+  license: GPL-2.0-or-later
   summary: Regression for data too large to fit in memory
   license_family: GPL
   license_file: {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3
