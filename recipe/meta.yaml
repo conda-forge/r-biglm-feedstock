@@ -1,6 +1,5 @@
 {% set version = "0.9-3" %}
 {% set posix = 'm2-' if win else '' %}
-{% set native = 'm2w64-' if win else '' %}
 
 package:
   name: r-biglm
@@ -13,8 +12,7 @@ source:
   sha256: 805d483dc58c041f1616267abeb39cecaaf7271a34e90668a5439383bf9a0d58
 
 build:
-  merge_build_host: true  # [win]
-  number: 0
+  number: 1
   rpaths:
     - lib/R/lib/
     - lib/
@@ -37,7 +35,6 @@ requirements:
     - r-dbi
   run:
     - r-base
-    - {{ native }}gcc-libs         # [win]
     - r-dbi
 
 test:
