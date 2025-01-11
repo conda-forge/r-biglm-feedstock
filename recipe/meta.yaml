@@ -12,7 +12,7 @@ source:
   sha256: 805d483dc58c041f1616267abeb39cecaaf7271a34e90668a5439383bf9a0d58
 
 build:
-  number: 1
+  number: 2
   rpaths:
     - lib/R/lib/
     - lib/
@@ -30,6 +30,8 @@ requirements:
     - {{ posix }}sed               # [win]
     - {{ posix }}coreutils         # [win]
     - {{ posix }}zip               # [win]
+    - cross-r-base {{ r_base }}    # [build_platform != target_platform]
+    - r-dbi                        # [build_platform != target_platform]
   host:
     - r-base
     - r-dbi
@@ -46,7 +48,6 @@ about:
   home: https://CRAN.R-project.org/package=biglm
   license: GPL-2.0-or-later
   summary: Regression for data too large to fit in memory
-  license_family: GPL
   license_file: {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3
 
 extra:
